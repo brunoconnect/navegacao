@@ -33,7 +33,8 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const TelaSecundaria()));
+                        builder: (context) =>
+                            TelaSecundaria(valor: "Bruno Staine")));
               },
               child: const Text("Ir para segunda tela")),
         ]),
