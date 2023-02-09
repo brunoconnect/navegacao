@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:navegacao/TelaSecundaria.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/secundaria': (context) => TelaSecundaria(),
+    },
     home: TelaPrincipal(),
   ));
 }
@@ -19,24 +23,20 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tela Principal"),
+        title: Text("Tela Principal"),
         backgroundColor: Colors.orange,
       ),
       body: Container(
-        padding: const EdgeInsets.only(top: 32, left: 8, right: 8),
+        padding: EdgeInsets.only(top: 32, left: 8, right: 8),
         child: Column(children: [
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
               ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            TelaSecundaria(valor: "Bruno Staine")));
+                Navigator.pushNamed(context, "/secundaria");
               },
-              child: const Text("Ir para segunda tela")),
+              child: Text("Ir para segunda tela")),
         ]),
       ),
     );
